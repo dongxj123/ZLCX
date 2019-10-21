@@ -3,191 +3,116 @@
 	position:absolute;
 	width: 1280px;
 	height: 720px;
-	background: url('../image/bg_img.png');
+	background: url('../image/bg.jpg');
 }
 
-.news{
-	position: absolute;
-    height:50px;
-    width:600px;
-	overflow:hidden;
-	background: url(../image/bg_news.png);
-}
-.newsFoc{
-	position: absolute;
-    height:50px;
-    width:600px;
-	overflow:hidden;
-	background: url(../image/focus_kuaixun.png);
-}
-#news0{
-	left:50px;
-	top:530px;
-	font-size: 24px;
-    line-height: 50px;
-	color: white;
-	font-family: "Microsoft YaHei";
-}
-#news1{
-	left:50px;
-	top:580px;
-	font-size: 24px;
-    line-height: 50px;
-	color: white;
-	font-family: "Microsoft YaHei";
-}
-#news2{
-	left:50px;
-	top:630px;
-	font-size: 24px;
-    line-height: 50px;
-	color: white;
-	font-family: "Microsoft YaHei";
-}
-#item0{
-    position: absolute;
-    height:201px;
-    width:386px;
-    left:677px;
-    top:490px;
-    background: url(../image/img_5.png);
-}
-#qrcode{
-    position: absolute;
-    height:201px;
-    width:160px;
-    left: 1092px;
-    top:490px;
-    background: url(../image/img_6.png);
-}
-.title{
-	position: absolute;
-	overflow:hidden;
-	font-size:17px;
-	width:300px;
-	height: 19px;
-}
-.dateT{
-	position: absolute;
-    left: 316px;
-    font-size: 16px;
-    height: 19px;
-}
 
 #lineFoc{
 	position:absolute;
 }
-#column0{
-    position:absolute;
-    left:677px;
-	top:137px;
-	width:275px;
-    height:162px;
-    background: url('../image/img_1.png');
+.title{
+	position:absolute;
+	width:915px;
+	height:85px;
+	border:0px;
+	left: 310px;
 }
-#column1{
-    position:absolute;
-    left:977px;
-	top:137px;
-	width:275px;
-    height:162px;
-    background: url('../image/img_2.png');
+.titleFoc{
+	position:absolute;
+	width:915px;
+	height:85px;
+	border:0px;
+	left: 310px;
+	background: url('../image/focus.jpg');
 }
-#column2{
-    position:absolute;
-    left:677px;
-	top:314px;
-	width:275px;
-    height:162px;
-    background: url('../image/img_3.png');
+#title0{
+    top: 140px;
 }
-#column3{
-    position:absolute;
-    left:977px;
-	top:314px;
-	width:275px;
-    height:162px;
-    background: url('../image/img_4.png');
+#title1{
+    top: 220px;
+}
+#title2{
+	top:300px;
+}
+#title3{
+    top:380px;
+}
+#title4{
+    top: 460px;
+}
+#title5{
+    top: 540px;
 }
 .lineFoc00{
-	left:35px;
-	top:123px;
-	width:632px;
-	height:370px;
-	
+	left: 48px;
+	top: 134px;
+	width:252px;
+	height:70px;
 	border:0px;
-	background: url('../image/focus_img_vido_jiaodian.png');
+	background: url('../image/tab_01.png');
 }
 .lineFoc01{
-	left: 47px;
-    top: 487px;
-	width:132px;
-	height:52px;
+	left: 48px;
+	top: 192px;
+	width:252px;
+	height:70px;
 	border:0px;
-	background: url('../image/focus_kx.png');
+	background: url('../image/tab_02.png');
 }
 .lineFoc10{
-	left: 663px;
-    top: 124px;
-	width:307px;
-	height:194px;
+	left: 310px;
+    top: 140px;
+	width:915px;
+	height:85px;
 	border:0px;
-	background: url('../image/focus_zjgsfwq.png');
+	background: url('../image/focus.png');
 }
 .lineFoc11{
-	left: 963px;
-    top: 124px;
-	width:307px;
-	height:194px;
+	left: 310px;
+    top: 220px;
+	width:915px;
+	height:85px;
 	border:0px;
-	background: url('../image/focus_zjgsfwq.png');
+	background: url('../image/focus.png');
 }
 .lineFoc12{
-	left:663px;
-	top:301px;
-	width:307px;
-	height:194px;
+	left: 310px;
+	top:300px;
+	width:915px;
+	height:85px;
 	border:0px;
-	background: url('../image/focus_zjgsfwq.png');
+	background: url('../image/focus.png');
 }
 .lineFoc13{
-	left:963px;
-    top:301px;
-    width:307px;
-	height:194px;
+	left: 310px;
+    top:380px;
+    width:915px;
+	height:85px;
 	border:0px;
-	background: url('../image/focus_zjgsfwq.png');
+	background: url('../image/focus.png');
 }
-.lineFoc20{
-	left: 177px;
-    top: 438px;
-    width: 612px;
-    height: 62px;
+.lineFoc14{
+	left: 310px;
+    top:460px;
+    width:915px;
+	height:85px;
 	border:0px;
-	background: url('../image/focus_kuaixun.png');
+	background: url('../image/focus.png');
+}
+.lineFoc15{
+	left: 310px;
+    top:540px;
+    width:915px;
+	height:85px;
+	border:0px;
+	background: url('../image/focus.png');
+}
+.lineFoc16{
+	left: 310px;
+    top:600px;
+    width:915px;
+	height:85px;
+	border:0px;
+	background: url('../image/focus.png');
 }
 
-.lineFoc21{
-	left: 644px;
-    top: 382px;
-    width: 203px;
-    height: 220px;
-	border:4px solid #c93032;
-	background: url('');
-}
-.lineFoc22{
-	left: 851px;
-    top: 382px;
-    width: 203px;
-    height: 220px;
-	border:4px solid #c93032;
-	background: url('');
-}
-.lineFoc30{
-	left:663px;
-	top: 476px;
-    width: 418px;
-    height: 233px;
-	border:0px;
-	background: url('../image/focus_5.png');
-}

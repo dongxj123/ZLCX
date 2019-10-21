@@ -100,7 +100,7 @@ function doselect(){
             //window.location.href="../fzzj/fzzj.html";
         } else if (line0Pos == 1) {
             //法治服务
-            window.location.href = "../fzfw/fzfw.html";
+            window.location.href = "../kuaixunList/kuaixunList.html";
         } 
     } else if (area == 1) {
         if (line1Pos == 0) {
