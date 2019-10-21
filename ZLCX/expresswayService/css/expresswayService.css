@@ -1,0 +1,39 @@
+*{margin:0;padding:0;}
+#bg{
+	position:absolute;
+	width: 1280px;
+	height: 720px;
+	background: url('../image/bg.jpg');
+}
+.lineFoc00{
+    position:absolute;
+	width: 625px;
+    height: 532px;
+    top: 124px;
+    left: 37px;
+	background: url('../image/img_01.png');
+}
+.lineFoc10{
+    position:absolute;
+	width: 603px;
+    height: 316px;
+    top: 124px;
+    left: 644px;
+	background: url('../image/img_02.png');
+}
+.lineFoc11{
+    position:absolute;
+	width: 603px;
+    height: 234px;
+    top: 422px;
+    left: 644px;
+	background: url('../image/img_03.png');
+}
+.lineFoc20{
+    position:absolute;
+	width: 132px;
+    height: 52px;
+    top: 54px;
+    left: 1070px;
+	background: url('../image/back.png');
+}

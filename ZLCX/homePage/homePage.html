@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>浙里畅行首页</title>
+<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+<meta charset="utf-8"/>
+<meta name="page-view-size" content="1280*720"/>
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="cache-control" content="no-cache"/>
+<script src="js/homePage.js" type="text/javascript"></script>
+<meta http-equiv="expires" content="0"/>
+<meta name="description" content="This is my page" />
+<meta name="keywords" content="keyword1,keyword2,keyword3" />
+<link rel="Stylesheet" type="text/css" href="css/homePage.css"/>
+<script src="../../tools.js" type="text/javascript"></script>
+<script src="../../config.js" type="text/javascript"></script>
+<script src="../../publicJson.js" type="text/javascript"></script>
+<script src="../../key_event_public.js" type="text/javascript"></script>
+<link href="../KeyBoard/css/default.css" rel=Stylesheet type="text/css" />
+<link href="../KeyBoard/css/white.css" rel=Stylesheet type="text/css" />
+<link href="../KeyBoard/css/wp8.css" rel=Stylesheet type="text/css" />
+<script src="../KeyBoard/js/keyboard.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var index =0;
+	var aurl = 0;
+	var innerIndex = 0;
+	var queryStr = "";
+	var appid = 0;
+	var timeVideoDelay;
+	var lpos;var tpos; var wpos; var hpos;
+	function closeit()
+	{
+		clearTimeout(timeVideoDelay);
+		iPanel.Media.setPosition(0,0,0,0); 
+		media.AV.close();
+	}	
+</script>
+</head>
+<body bgcolor="transparent" leftmargin="0" topmargin="0" onload="init();" onunload="stopVideo();">
+<div id="bg" class="bg"></div>
+<!-- <div id="icoImg"><img src='image/ico.png' width='20px' height='20px'></div> -->
+<div id="news0" class="news">杭州绕城高速公路西线81K+500M路段发生交通事故</div>
+<div id="news1" class="news"></div>
+<div id="news2" class="news"></div>
+
+<div id="column0"></div>
+<div id="column1"></div>
+<div id="column2"></div>
+<div id="column3"></div>
+<div id="item0"></div>
+<div id="qrcode"></div>
+<!--<div id="videoImg"></div>-->
+<div id="lineFoc" class="lineFoc"></div>
+
+</html>
+

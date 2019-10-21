@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+<!-- <meta http-equiv="Content-Type" name="page-view-size" content="charset=utf-8"/> -->
+<meta name="page-view-size" content="1280*720"/>
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta http-equiv="expires" content="0"/>
+<meta name="description" content="This is my page" />
+<meta name="keywords" content="keyword1,keyword2,keyword3" />
+<script src="../tools.js" type="text/javascript"></script>
+<script src="../config.js" type="text/javascript"></script>
+<style>
+#searchImg,#searchBtnImg,#searchValue,#backImg,#leftImg
+{
+    display:none;
+}
+
+</style>
+<script type="text/javascript">
+
+	//vod视频退出
+	function stopVideo() {
+	    try {
+	        media.AV.stop();
+	        media.AV.close();
+	        DVB.stopAV();
+	    }
+	    catch (e) { }
+	} //vod视频播放
+	function startVideo(__videoUrl) {
+	    try {
+	        DVB.stopAV();
+	        media.video.setPosition(0, 0, 1280, 720);
+	        VOD.changeServer("isma_v2", "ip_ts");
+	        media.AV.open(__videoUrl, "VOD");
+	    }
+	    catch (e) { }
+	}
+	function init() {
+	    //var videoUrl = "rtsp://21.254.5.198:554/icms_icds_pub11/opnewsps11/Video/2019/01/03/10/20190102143738woyuxianfazaiyiqi20212301342021233176.ts?Contentid=CP23010020190102042904&isHD=0&isIpqam=0&owchid=hdds_ip&token=9DD6A00C85DC1CAC658C969C33BD1792C8443D5A07BF125B98E75078C1517ADCD78659B51C65C50C6B69D34B89333AD50103FDFD5E46CDEBF3254752144717B0E734C56AFAA8F735AEDE316E71C93D9A499B097326DFBE1697CA97789F6288DA2B268508B1FF31A006A694DB03ACC40328EA04F8D555876ABB226172CD75C0402F35E1B39FD2B51C90767B7BAAA7FB632A4FAE81097572253777AE4491C9BB98D0558F4FF14A5A90290BADE6FC1AD34EACFFF03047171F4DEBB35393F0804A3D3480CA93227F030229EB3C469BAECCD993B8";
+	    var videoUrl = decodeURIComponent(location.href.getQueryString("videoUrl"));
+        attachEvent();
+	    startVideo(videoUrl);
+	}
+	function attachEvent() {
+	    document.onkeydown = grabEvent;
+	    document.onsystemevent = grabEvent;
+	    document.onirkeypres = grabEvent;
+	}
+
+	function grabEvent() {
+	    var key_code = event.which != undefined ? event.which : event.keyCode;
+	    switch (key_code) {
+
+	        case 340: //back
+	        case 65:
+	            history.go(-1);
+	            return 0;
+	            break;
+	        case 283:
+	            return 0;
+	            break;
+	        case 5202: //setup成功
+
+	            media.AV.play();
+	            return 0;
+	            break;
+	        case 5203: //setup失败
+	            return 0;
+	            break;
+	        case 5205: //播放成功
+
+	            return 0;
+	            break;
+	        case 5206: //播放失败
+	            return 0;
+	            break;
+	        case 5225:
+	            return 0;
+	            break;
+	        case 5226:
+	            return 0;
+	            break;
+	        case 5227:
+	            return 0;
+	            break;
+	        case 5210: //播放完毕
+	            location.href = location.href;
+	            break;
+
+	    }
+	}
+</script>
+</head>
+<body bgcolor="transparent" leftmargin="0" topmargin="0" onload="init();" onunload="stopVideo();">
+
+</body>
+</html>
+
