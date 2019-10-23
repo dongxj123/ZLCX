@@ -6,43 +6,72 @@
 	background: url('../image/bg.jpg');
 }
 
-
+.title{
+	position: absolute;
+	margin-left: 37px;
+}
+.time{
+	position: absolute;
+	right: 20px;
+}
 #lineFoc{
 	position:absolute;
 }
-.title{
+.news{
 	position:absolute;
 	width:915px;
 	height:85px;
 	border:0px;
 	left: 310px;
+	line-height: 72px;
+    font-size: 24px;
 }
-.titleFoc{
+.newsFoc{
 	position:absolute;
 	width:915px;
 	height:85px;
 	border:0px;
 	left: 310px;
-	background: url('../image/focus.jpg');
+	line-height: 72px;
+    font-size: 24px;
+	background: url('../image/focus.png');
 }
-#title0{
+#news0{
     top: 140px;
 }
-#title1{
+#news1{
     top: 220px;
 }
-#title2{
+#news2{
 	top:300px;
 }
-#title3{
+#news3{
     top:380px;
 }
-#title4{
+#news4{
     top: 460px;
 }
-#title5{
+#news5{
     top: 540px;
 }
+/* .column0Foc{
+	position:absolute;
+	left: 48px;
+	top: 134px;
+	width:252px;
+	height:70px;
+	border:0px;
+	background: url('../image/tab_01.png');
+}
+.column1Foc{
+	position:absolute;
+	left: 48px;
+	top: 192px;
+	width:252px;
+	height:70px;
+	border:0px;
+	background: url('../image/tab_02.png');
+} */
 .lineFoc00{
 	left: 48px;
 	top: 134px;

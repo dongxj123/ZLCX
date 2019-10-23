@@ -4,18 +4,17 @@ var line0Size=2;
 var line0Pos=0;
 var line1Size=6;
 var line1Pos=0;
-
 // var newsPos=0;
 // var newsSize = 3;
-var videoPos = 0;
-// var newsPage=1;
-// var newsPageSize=0;
-
+var newsPageNum=1;
+var newstotalPage;
+var newsPageSize=6;
 function init(){
-	attachEvent();
-	focMove(0);
+    attachEvent();
+    getHwEventInfo();
+    focMove(0);
 }
-function getNews(){
+function getHwEventInfo(){
     $AJAX(
             {
                 url: reqUrl +"api/trafficapi/queryHwEventInfo",
@@ -23,9 +22,10 @@ function getNews(){
                 async: true,
                 success:
                     function (resp) {
-                        eval("listJson = " + resp.responseText);
-                        if(listJson.code=="200"){
-                        	showNews();
+                        eval("jsonData = " + resp.responseText);
+                        if(jsonData.code=="200"){
+                            newsTotalPage=Math.ceil(jsonData.data.length/6);
+                        	trunPage(0);
                         }
                         
                     },
@@ -34,16 +34,46 @@ function getNews(){
                     }
             });
 }
-var wordSize = 30;
-function showNews(){
-    var data=listJson.data;
-    for(var i=0;i<3;i++){
-        $("news"+i).innerHTML=getWordSize(data[i].content);
+function getTrafficInformation(){
+    $AJAX(
+            {
+                url: reqUrl +"api/trafficapi/queryTrafficInformation",
+                method: "get",
+                async: true,
+                success:
+                    function (resp) {
+                        eval("jsonData = " + resp.responseText);
+                        if(jsonData.code=="200"){
+                            newsTotalPage=Math.ceil(jsonData.data.length/6);
+                        	trunPage(0);
+                        }
+                        
+                    },
+                failed:
+                    function (resp) {
+                    }
+            });
+}
+var wordSize = 25;
+function showNews(_data){
+    for(var i=0;i<6;i++){
+        $("title"+i).innerHTML="";
+        $("time"+i).innerHTML="";
+    }
+    for(var i=0;i<_data.length;i++){
+        $("title"+i).innerHTML=getWordSize(_data[i].content);
+        if(line0Pos==0){//高速
+            $("time"+i).innerHTML="["+_data[i].startTime.split(" ")[0]+"]";
+        }else if(line0Pos==1){//城市
+            $("time"+i).innerHTML="["+_data[i].publishTime.split(" ")[0]+"]";
+        }
     }
 }
+
 //焦点移动
 function focMove(_num){
 	if(area==0){
+        $("news"+line1Pos).className="news";
 		if(line0Pos + _num < line0Size && line0Pos + _num >=0){
 			line0Pos+=_num;
 			$("lineFoc").className="lineFoc"+area+line0Pos;
@@ -54,25 +84,49 @@ function focMove(_num){
 	}
 	if(area==1){
 		if(line1Pos + _num < line1Size && line1Pos + _num >=0){
-			line1Pos+=_num;
-            $("lineFoc").className="lineFoc"+area+line1Pos;
-		}else if(line1Pos + _num <0){
-//			area=4;
-//			focMove(0);
+            for(var i=0;i<6;i++){
+                $("news"+i).className="news";
+            }
+            $("news"+line1Pos).className="news";
+            line1Pos+=_num;
+            $("news"+line1Pos).className="newsFoc";
+		}else{
+            trunPage(_num);
 		}
 	}
 	
 }
+function trunPage(_num){
+    var showDatas;
+    if(newsPageNum+_num>0 && newsPageNum+_num < newsTotalPage){
+        newsPageNum+=_num;
+        showDatas=jsonData.data.slice((newsPageNum-1)*6,(newsPageNum-1)*6+newsPageSize);
+        line1Size=showDatas.length;
+        if(_num==1){
+            line1Pos=0;
+        }else if(_num==-1){
+            line1Pos=5;
+        }
+        focMove(0);
+        showNews(showDatas);
+    }else if(newsPageNum+_num == newsTotalPage){
+        newsPageNum+=_num;
+        showDatas=jsonData.data.slice((newsPageNum-1)*6);
+        line1Size=showDatas.length;
+        line1Pos=0;
+        focMove(0);
+        showNews(showDatas);
+    }
+   
+}
 function doselect(){
     if (area == 0) {
+        line1Pos=0;
+        newsPageNum=1;
         if (line0Pos == 0) {
-            //法治浙江
-            window.location.href = "../commList/xs.html?type=fzzj&returnUrl=" + location.href;
-
-            //window.location.href="../fzzj/fzzj.html";
+            getHwEventInfo();
         } else if (line0Pos == 1) {
-            //法治服务
-            window.location.href = "../fzfw/fzfw.html";
+            getTrafficInformation();
         } 
     } else if (area == 1) {
         if (line1Pos == 0) {
