@@ -1,0 +1,81 @@
+*{margin:0;padding:0;}
+body {
+    width: 1280px;
+    height: 720px;
+    margin:auto;
+    position: absolute;
+    background:url("../image/bg.jpg") no-repeat;
+}
+p{
+	text-indent:50px;
+}
+.back{
+    position:absolute;
+	width: 120px;
+    height: 40px;
+    top: 60px;
+    left: 1070px;
+	background: url('../image/back.png');
+}
+.backFoc{
+    position:absolute;
+	width: 132px;
+    height: 52px;
+    top: 54px;
+    left: 1070px;
+	background: url('../image/focus_back.png');
+}
+#headTile{
+	position: absolute;
+    width: 261px;
+    height: 86px;
+    left: 465px;
+    top: 32px;
+    color: #0076cd;
+    font-size: 32px;
+    font-family: SimHei;
+}
+.container{
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    /* left:37px; */
+}
+
+.contentText{
+    position: absolute;
+    width: 1056px;
+    height: 446px;
+    top: 192px;
+    left: 112px;
+    z-index: 100;
+    color: white;
+}
+p{ margin:0px; padding:0px;color: black}
+
+#pageNum{
+    position: absolute;
+    width: 91px;
+    height: 64px;
+    z-index: 100;
+    text-align: center;
+    color: white;
+    line-height: 22px;
+    font-size: 22px;
+    font-weight:bold;
+}
+
+#title{
+    position:absolute;
+    width:1280px;
+    height:36px;
+    line-height:36px;
+    top:130px;
+    font-size:30px;
+    text-align:center;
+    color:white;
+    visibility:visible;
+    font-family: "Microsoft YaHei";
+    z-index:99;
+}

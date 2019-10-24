@@ -13,10 +13,14 @@ var line3Pos=0;
 var videoPos = 0;
 // var newsPage=1;
 // var newsPageSize=0;
+var pos;
 
 function init(){
 	attachEvent();
 	// getList(homePageList,1,5);
+	area = location.href.getQueryString("area") ? Number(location.href.getQueryString("area")) : 0;
+	pos = location.href.getQueryString("pos") ? Number(location.href.getQueryString("pos")) : 0;
+    eval("line"+area+"Pos="+pos);
 	focMove(0);
 	//$("lineFoc").className="lineFoc13";
     startVideo(0);
@@ -25,7 +29,7 @@ function init(){
 function getNews(){
     $AJAX(
             {
-                url: reqUrl +"api/trafficapi/queryHwEventInfo",
+                url: reqUrl + "api/trafficapi/queryTrafficInformation",
                 method: "get",
                 async: true,
                 success:
@@ -45,7 +49,7 @@ var wordSize = 30;
 function showNews(){
     var data=listJson.data;
     for(var i=0;i<3;i++){
-        $("news"+i).innerHTML=getWordSize(data[i].content);
+        $("news"+i).innerHTML=getWordSize(data[i].title);
     }
 }
 //焦点移动
@@ -99,7 +103,8 @@ function doselect(){
 
             //window.location.href="../fzzj/fzzj.html";
         } else if (line0Pos == 1) {
-            //法治服务
+            //快讯列表页
+            SetCookie("kuaixunListReturnUrl", "../homePage/homePage.html?area=" + area + "&pos=" + line0Pos);
             window.location.href = "../kuaixunList/kuaixunList.html";
         } 
     } else if (area == 1) {
@@ -112,16 +117,8 @@ function doselect(){
         }else if (line1Pos == 1) {
             window.location.href = "../vod/vodPlay.htm?rtspUrl=" + homePageList.news[5].videoUrl;        }
     } else if (area == 2) {
-        if (line2Pos == 0) {
-            //我要看
-            window.location.href = "../wyx/wyx.html";
-        } else if (line2Pos == 1) {
-            //我要学
-            window.location.href = "../wyk/wyk.html";
-        } else if (line2Pos == 2) {
-            //我要查
-            window.location.href = "../wyc/wyc.html";
-        }
+        SetCookie("detailReturnUrl", "../homePage/homePage.html?area=" + area + "&pos=" + line2Pos)
+        window.location.href = "../detail/detail.html?apiUrl=api/trafficapi/queryTrafficInformation&dataIndex=" + line2Pos + "&contentField=informationContent&titleField=title";
     } else if (area == 3) {
         //window.location.href = "http://21.254.182.203/vote/index.php/vote/article/index/id/73.html&returnUrl=" + location.href;
 				// window.location.href = "http://21.254.182.203/vote/index.php/vote/article/index/id/73.html";		
@@ -181,7 +178,7 @@ function grabEvent() {
                 focMove(0);
         	}else if(area==2){
                 if(line2Pos==0){
-                    line2Pos=0;
+                    line0Pos=1;
                     area=0;
                     focMove(0);
                 }else{

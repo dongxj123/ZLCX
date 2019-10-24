@@ -56,22 +56,22 @@ function getList(_type,_page,_rows){
                     }
             });
 }
-function getDetail(_id){
-    $AJAX(
-            {
-                url: detailurl + _id,
-                method: "get",
-                async: true,
-                success:
-                    function (resp) {
-                        eval("detailJson = " + resp.responseText);
-                        if(detailJson.status=="200"){
-                        	callBack();
-                        }
+ function getDetail(_id){
+     $AJAX(
+             {
+                 url: detailurl + _id,
+                 method: "get",
+                 async: true,
+                 success:
+                     function (resp) {
+                         eval("detailJson = " + resp.responseText);
+                         if(detailJson.status=="200"){
+                         	callBack();
+                         }
                         
-                    },
-                failed:
-                    function (resp) {
-                    }
-            });
-}
+                     },
+                 failed:
+                     function (resp) {
+                     }
+             });
+ }

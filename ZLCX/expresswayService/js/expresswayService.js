@@ -1,4 +1,4 @@
-var area=0;//0右，1左（2）,2返回
+var area=0;//0左，1右（2）,2返回
 var areaSize=2;
 var line0Size=1;
 var line0Pos=0;
