@@ -36,6 +36,8 @@ function getHwEventInfo(){
                         if(jsonData.code=="200"){
                             newsTotalPage=Math.ceil(jsonData.data.length/6);
                         	initData();
+                        } else {
+                            line1Size = 0;
                         }
                         
                     },
@@ -47,17 +49,19 @@ function getHwEventInfo(){
 function getTrafficInformation(){
     $AJAX(
             {
-                url: reqUrl +"api/trafficapi/queryTrafficInformation",
+                url: reqUrl + "api/trafficapi/queryTrafficInformation",
                 method: "get",
                 async: true,
                 success:
                     function (resp) {
                         eval("jsonData = " + resp.responseText);
-                        if(jsonData.code=="200"){
-                            newsTotalPage=Math.ceil(jsonData.data.length/6);
-                        	initData();
+                        if (jsonData.code == "200") {
+                            newsTotalPage = Math.ceil(jsonData.data.length / 6);
+                            initData();
+                        } else {
+                            line1Size = 0;
                         }
-                        
+
                     },
                 failed:
                     function (resp) {
@@ -142,7 +146,11 @@ function initData(){
 function doselect(){
     if (area == 0) {
         line1Pos=0;
-        newsPageNum=1;
+        newsPageNum = 1;
+        for (var i = 0; i < 6; i++) {
+            $("title" + i).innerHTML = "";
+            $("time" + i).innerHTML = "";
+        }
         if (line0Pos == 0) {
             selectedItem=0;
             getHwEventInfo();
@@ -213,11 +221,12 @@ function grabEvent() {
             break;
         case 4: //right
         case 39:
-        	if(area==0){
-                area=1;
-                focMove(0);
+            if (area == 0) {
+                if(line1Size>0)
+                    area=1;
+                    focMove(0);
                 
-        	}
+        	    }
             return 0;
             break;
         case 13: //enter

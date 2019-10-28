@@ -115,7 +115,9 @@ function doselect(){
             //重要信息详情
         	getDetail(listJson.data.results[newsPos].id);
         }else if (line1Pos == 1) {
-            window.location.href = "../vod/vodPlay.htm?rtspUrl=" + homePageList.news[5].videoUrl;        }
+            SetCookie("parkReturnUrl", "../homePage/homePage.html?area=" + area + "&pos=" + line1Pos);
+            window.location.href = "../park/park.html";
+        }
     } else if (area == 2) {
         SetCookie("detailReturnUrl", "../homePage/homePage.html?area=" + area + "&pos=" + line2Pos)
         window.location.href = "../detail/detail.html?apiUrl=api/trafficapi/queryTrafficInformation&dataIndex=" + line2Pos + "&contentField=informationContent&titleField=title";
