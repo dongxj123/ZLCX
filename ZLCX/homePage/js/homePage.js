@@ -123,8 +123,9 @@ function doselect(){
         window.location.href = "../detail/detail.html?apiUrl=api/trafficapi/queryTrafficInformation&dataIndex=" + line2Pos + "&contentField=informationContent&titleField=title";
     } else if (area == 3) {
         //window.location.href = "http://21.254.182.203/vote/index.php/vote/article/index/id/73.html&returnUrl=" + location.href;
-				// window.location.href = "http://21.254.182.203/vote/index.php/vote/article/index/id/73.html";		
-                window.location.href = "../commList/xs.html?type=xfjwj&returnUrl=" + location.href;
+        // window.location.href = "http://21.254.182.203/vote/index.php/vote/article/index/id/73.html";
+        SetCookie("trafficReturnUrl", "../homePage/homePage.html?area=" + area + "&pos=" + line3Pos);
+        window.location.href = "../traffic/traffic.html";
     } else if (area == 4) {
         //		if(line4Pos==0){
         //			//出发小键盘
